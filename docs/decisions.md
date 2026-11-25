@@ -81,3 +81,11 @@ Setiap keputusan harus mencakup:
   2. *Menguji kelayakan runtime pada M0, jika tidak didukung catat sebagai batasan sistem:* Hanya laporkan strategi yang implementasi fisiknya benar-benar bekerja.
 - **Keputusan:** Strategi C hanya diuji jika runtime model yang dipilih secara sah menyediakan API pinned memory; jika tidak ada, dicatat secara transparan sebagai batasan runtime.
 - **Konsekuensi:** Validitas ilmiah laporan Bab IV terjamin dari klaim palsu.
+
+### ADR-006: UI Kiosk Vanilla JavaScript Terintegrasi dengan Gateway FastAPI yang Ada
+- **Tanggal:** 25 November 2026
+- **Status:** `DISETUJUI`
+- **Konteks & Masalah:** UI M4 memerlukan navigasi empat layanan, status readiness, dan mode simulasi, sementara gateway yang sudah berjalan di repositori adalah FastAPI dan registry layanan telah memakai `configs/services.yaml`.
+- **Alternatif:** Menambahkan backend Express terpisah seperti brief prototipe; mengganti gateway yang telah menjadi bagian dari kontribusi orkestrator; atau mempertahankan FastAPI dan menambahkan facade REST tipis untuk kontrak UI.
+- **Keputusan:** Mempertahankan gateway FastAPI yang ada dan membangun UI dengan Vanilla JavaScript ES modules. Facade UI memetakan ID pengalaman ke layanan registry, memisahkan jawaban simulasi dari jalur inference adapter, serta menunggu `/health` READY sebelum inference pada mode nyata.
+- **Konsekuensi & Rationale:** Tidak ada service backend kedua yang mengaburkan arsitektur atau mengganggu target Linux. Empat pengalaman tetap terpisah pada level adapter; konfigurasi mock dan timeout diberikan melalui environment.

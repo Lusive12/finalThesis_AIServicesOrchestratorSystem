@@ -11,6 +11,7 @@ from src.orchestrator.lifecycle import LifecycleStateMachine
 from src.orchestrator.mode_controller import ModeController
 from src.orchestrator.registry import ServiceRegistry
 from src.orchestrator.request_router import RequestRouter
+from src.orchestrator.kiosk_services import KioskServices
 
 logging.basicConfig(
     level=logging.INFO,
@@ -24,6 +25,7 @@ def create_app() -> FastAPI:
     lifecycle = LifecycleStateMachine()
     mode_controller = ModeController(registry, lifecycle)
     router = RequestRouter(registry, lifecycle)
+    kiosk_services = KioskServices(registry, lifecycle, router)
     ws_manager = WebSocketConnectionManager()
 
     @asynccontextmanager
@@ -50,7 +52,7 @@ def create_app() -> FastAPI:
 
     # Attach REST endpoints
     gateway_router = create_gateway_router(
-        registry, lifecycle, mode_controller, router, ws_manager
+        registry, lifecycle, mode_controller, router, ws_manager, kiosk_services
     )
     app.include_router(gateway_router)
 

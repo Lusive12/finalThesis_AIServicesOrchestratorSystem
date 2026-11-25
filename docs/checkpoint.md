@@ -65,6 +65,14 @@ Dokumen ini melacak status aktif tugas, checklist pekerjaan, file yang disentuh,
 - [x] Implementasikan modul sampling NVML (`pynvml`) untuk VRAM dan RAM secara terprogram.
 - [ ] Verifikasi sambungan end-to-end ke service model AI aktual saat hardware lab aktif.
 
+### Pekerjaan UI Kiosk M4
+- [x] Bangun layar utama potret dengan empat pengalaman dan navigasi sentuh.
+- [x] Buat antarmuka photobooth, virtual try-on, rekomendasi gaya, dan percakapan.
+- [x] Sediakan facade REST untuk status, aktivasi, health, serta inference; inference dibatasi sampai layanan READY.
+- [x] Tambahkan mock mode eksplisit, state loading/error, timeout sesi, upload gambar, serta kamera dengan pembersihan stream.
+- [x] Dokumentasikan instalasi, mode mock, integrasi adapter, dan peluncuran Chromium kiosk di `README.md`.
+- [ ] Uji visual dan sambungan terhadap layanan nyata pada mesin Linux kiosk.
+
 ---
 
 ## 4. Kendala / Blockers Saat Ini
