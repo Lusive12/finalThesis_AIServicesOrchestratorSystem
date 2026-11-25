@@ -1,0 +1,121 @@
+% ==============================================================================
+% METRIK EVALUASI KINERJA SISTEM ORKESTRASI SMART KIOSK
+% Format LaTeX untuk Bab 3 Metodologi Penelitian
+% Penulis: Rendy Lexxy Kurniawan (NRP 5024231007)
+% Sitasi terhubung langsung dengan docs/tempSOURCES.md
+% ==============================================================================
+
+\subsection{Metrik Pengujian dan Evaluasi Kinerja}
+\label{subsec:metrik_evaluasi}
+
+Untuk mengevaluasi kinerja sistem orkestrasi layanan AI pada smart kiosk secara kuantitatif, ditetapkan lima metrik evaluasi kinerja inti. Metrik-metrik ini dirancang untuk mengukur efektivitas manajemen siklus hidup (\textit{lifecycle management}) dan alokasi memori GPU NVIDIA RTX 5060 berkapasitas 8~GB VRAM pada empat strategi pengelolaan model yang dibandingkan. Kelima metrik ini mencakup dimensi latensi sistem, \textit{overhead} orkestrasi, efisiensi komputasi model, pemanfaatan memori fisik, serta keandalan sistem dalam mempertahankan stabilitas operasional \cite{zhang2025adaptive, woo2025exploring, min2023sensix}.
+
+% ------------------------------------------------------------------------------
+% METRIK 1: Total / Average Latency
+% ------------------------------------------------------------------------------
+\subsubsection{Total / Average Latency ($T_{\text{e2e}}$)}
+\textit{Total / Average Latency} ($T_{\text{e2e}}$) mengukur total waktu tanggap sistem dari perspektif pengguna kios, yang dihitung mulai dari saat pengguna selesai memberikan masukan (misalnya selesai berbicara atau menekan tombol antarmuka) hingga sistem mulai menyajikan keluaran pertama secara nyata (misalnya paket audio pertama dikeluarkan melalui pengeras suara atau bingkai visual pertama tampil di layar) \cite{chen2022minideep, chiang2023management}. Metrik ini menjadi tolok ukur utama dalam menilai kelancaran dan kealamian interaksi pada kios cerdas mandiri.
+
+Secara langsung, $T_{\text{e2e}}$ dihitung menggunakan selisih waktu mutlak antara waktu keluaran pertama ($t_{\text{first\_response}}$) dan waktu akhir masukan pengguna ($t_{\text{input\_end}}$) sebagaimana dirumuskan pada Persamaan~(\ref{eq:e2e_latency}):
+\begin{equation}
+    T_{\text{e2e}} = t_{\text{first\_response}} - t_{\text{input\_end}}
+    \label{eq:e2e_latency}
+\end{equation}
+
+Dalam konteks orkestrasi layanan sekuensial multi-tahap (seperti pipeline percakapan yang terdiri atas $N$ tahapan model), $T_{\text{e2e}}$ merupakan dekomposisi dari total waktu inferensi murni seluruh model ditambah \textit{overhead} waktu pergantian model (\textit{swap time}) dan latensi transmisi jaringan lokal \cite{zhang2025adaptive}, yang diformulasikan pada Persamaan~(\ref{eq:e2e_decomp}):
+\begin{equation}
+    T_{\text{e2e}} = \sum_{i=1}^{N} T_{\text{infer}, i} + \sum_{j=1}^{N-1} T_{\text{swap}, j} + T_{\text{net}}
+    \label{eq:e2e_decomp}
+\end{equation}
+di mana $T_{\text{infer}, i}$ menyatakan waktu inferensi model ke-$i$, $T_{\text{swap}, j}$ menyatakan durasi transisi memori antara model ke-$j$ dan model ke-$(j+1)$, serta $T_{\text{net}}$ menyatakan latensi penyampaian pesan melalui protokol FastAPI/WebSocket \cite{fastapi2026}. 
+
+Rumus ini digunakan dengan mencatat cap waktu beresolusi tinggi (\textit{high-resolution timestamp}) pada API Gateway. Pada Strategi (a) \textit{All-Resident}, nilai $T_{\text{swap}} \approx 0$ karena seluruh model telah siaga di VRAM, sedangkan pada Strategi (d) \textit{Prefetch}, nilai $T_{\text{swap}}$ tersembunyi (\textit{latency hiding}) berkat pemuatan awal secara asinkronus \cite{zhang2025adaptive}. Kriteria keberhasilan ditetapkan pada target $T_{\text{e2e}} \le 2{,}0\text{ detik}$ dengan batas toleransi maksimum $3{,}0\text{ detik}$.
+
+% ------------------------------------------------------------------------------
+% METRIK 2: Waktu Swap dan Transisi Model
+% ------------------------------------------------------------------------------
+\subsubsection{Waktu Swap dan Transisi Model ($T_{\text{swap}}$)}
+Waktu Swap dan Transisi Model ($T_{\text{swap}}$) mengukur durasi waktu yang dihabiskan oleh orkestrator untuk melepaskan alokasi memori model aktif sebelumnya dari VRAM GPU hingga model target berikutnya selesai dimuat dan lulus uji kesiapan (\textit{readiness check}) \cite{woo2025exploring, min2023sensix}. Metrik ini merupakan indikator langsung efisiensi algoritma orkestrator dalam memitigasi perebutan sumber daya (\textit{resource contention}) pada GPU dengan kapasitas terbatas 8~GB.
+
+Perhitungan $T_{\text{swap}}$ mencakup tiga fase transisi berurutan yang dirumuskan pada Persamaan~(\ref{eq:swap_time}):
+\begin{equation}
+    T_{\text{swap}} = T_{\text{unload}} + T_{\text{verify}} + T_{\text{load}}
+    \label{eq:swap_time}
+\end{equation}
+di mana:
+\begin{itemize}
+    \item $T_{\text{unload}}$: durasi penghentian proses model aktif dan pengiriman sinyal terminasi konteks CUDA.
+    \item $T_{\text{verify}}$: durasi verifikasi aktif via polling \textit{NVIDIA Management Library} (NVML) untuk memastikan memori VRAM benar-benar telah dilepaskan ke batas dasar (\textit{baseline}) sebelum proses baru dialokasikan \cite{nvidia2026containertoolkit}.
+    \item $T_{\text{load}}$: durasi pemindahan bobot parameter model baru dari media penyimpan (SSD atau Host Pinned RAM) ke VRAM GPU hingga endpoint \texttt{GET /health} mengembalikan status \texttt{HTTP 200 (Ready)}.
+\end{itemize}
+
+Rumus ini diterapkan secara seragam pada seluruh strategi:
+\begin{itemize}
+    \item Pada Strategi (b) \textit{Naive Load/Unload}, $T_{\text{load}}$ dibatasi oleh kecepatan I/O penyimpanan SSD ($T_{\text{swap}} \approx 2{,}0 - 5{,}0\text{ s}$).
+    \item Pada Strategi (c) \textit{Pinned-Memory Swap}, transfer dilakukan langsung dari Host RAM terpancang via jalur bus PCIe 4.0 x8 DMA ($T_{\text{swap}} \approx 0{,}2 - 0{,}5\text{ s}$) \cite{hu2023cec, woo2025exploring}.
+\end{itemize}
+Target keberhasilan didefinisikan $T_{\text{swap}} \le 0{,}5\text{ detik}$ untuk transisi antar-model percakapan dan $\le 5{,}0\text{ detik}$ untuk transisi ke mode visual eksklusif (\textit{Virtual Try-On} atau \textit{AI Photobooth}).
+
+% ------------------------------------------------------------------------------
+% METRIK 3: Waktu Inferensi Model
+% ------------------------------------------------------------------------------
+\subsubsection{Waktu Inferensi Model ($T_{\text{infer}}$)}
+Waktu Inferensi Model ($T_{\text{infer}}$) mengukur durasi komputasi intrinsik yang dibutuhkan oleh suatu model AI untuk memproses muatan data masukan (\textit{input payload}) hingga menghasilkan keluaran komputasi secara lengkap, dalam kondisi model telah berstatus siaga (\texttt{READY}) di dalam VRAM GPU \cite{chen2022minideep, zhang2025adaptive}. Metrik ini bertujuan memvalidasi bahwa orkestrator tidak menimbulkan interferensi degradasi terhadap performa pemrosesan matematis model pada kartu grafis.
+
+Perhitungan $T_{\text{infer}}$ dihitung dari selisih waktu saat respons inferensi selesai dikembalikan ($t_{\text{resp\_end}}$) terhadap waktu saat permintaan inferensi diterima oleh layanan ($t_{\text{req\_start}}$), sebagaimana ditunjukkan pada Persamaan~(\ref{eq:infer_time}):
+\begin{equation}
+    T_{\text{infer}} = t_{\text{resp\_end}} - t_{\text{req\_start}}
+    \label{eq:infer_time}
+\end{equation}
+
+Khusus untuk model berbasis keluaran teraliri (\textit{streaming}), seperti model bahasa besar (\textit{Large Language Model}), dievaluasi pula latensi token pertama atau \textit{Time-to-First-Token} ($T_{\text{TTFT}}$) yang merepresentasikan waktu tunggu hingga token kata pertama berhasil dibentuk \cite{zhang2025adaptive}:
+\begin{equation}
+    T_{\text{TTFT}} = t_{\text{token\_1}} - t_{\text{req\_start}}
+    \label{eq:ttft}
+\end{equation}
+
+Rumus ini diukur langsung pada adapter layanan backend menggunakan modul pencatat waktu presisi tinggi. Target penerimaan untuk model sekuensial berada pada rentang $300 - 800\text{ ms}$, sedangkan untuk model visual eksklusif dievaluasi berdasarkan laju bingkai minimum $8 - 15\text{ FPS}$ untuk video try-on atau durasi pemrosesan $\le 30\text{ detik}$ untuk generasi citra photobooth.
+
+% ------------------------------------------------------------------------------
+% METRIK 4: Penggunaan VRAM Puncak
+% ------------------------------------------------------------------------------
+\subsubsection{Penggunaan VRAM Puncak ($V_{\text{peak}}$)}
+Penggunaan VRAM Puncak ($V_{\text{peak}}$) mengukur alokasi memori fisik kartu grafis NVIDIA RTX 5060 maksimum yang terpakai selama siklus eksekusi inferensi model maupun selama transisi tumpang tindih (\textit{prefetching overlap}) berlangsung \cite{woo2025exploring, min2023sensix}. Metrik ini merupakan parameter keselamatan krusial untuk membuktikan bahwa strategi orkestrasi mampu mencegah insiden kegagalan fatal akibat memori video meluap (\textit{CUDA Out of Memory}).
+
+Nilai $V_{\text{peak}}$ diperoleh dari nilai supremum (maksimum) dari deret sampel alokasi memori yang dicuplik secara berkala oleh utas latar belakang (\textit{background thread}) menggunakan NVML \cite{nvidia2026containertoolkit}, dirumuskan pada Persamaan~(\ref{eq:vpeak}):
+\begin{equation}
+    V_{\text{peak}} = \max_{t \in [t_{\text{awal}}, t_{\text{akhir}}]} V(t)
+    \label{eq:vpeak}
+\end{equation}
+di mana $V(t)$ merepresentasikan besaran memori fisik GPU yang dialokasikan pada interval waktu $t$ dalam satuan megabita (MB) atau gigabita (GB).
+
+Pengukuran dilakukan dengan menginisialisasi pustaka \texttt{pynvml} dan melakukan cuplikan berkala (\textit{polling}) setiap interval $50 - 100\text{ ms}$ selama sesi pengujian berjalan. Kriteria kelulusan sistem ditetapkan secara ketat pada ambang batas:
+\begin{equation}
+    V_{\text{peak}} \le 7{,}5\text{ GB} \quad (7.680\text{ MB})
+    \label{eq:vpeak_constraint}
+\end{equation}
+Batas ini menyisakan ruang pengaman (\textit{headroom}) minimal sebesar 500~MB yang dialokasikan khusus untuk \textit{window compositor} sistem operasi Ubuntu Desktop dan \textit{frame buffer} tampilan antarmuka layar sentuh beresolusi Full HD ($1080 \times 1920$).
+
+% ------------------------------------------------------------------------------
+% METRIK 5: Tingkat Kestabilan Sesi
+% ------------------------------------------------------------------------------
+\subsubsection{Tingkat Kestabilan Sesi (\textit{Stability Rate})}
+Tingkat Kestabilan Sesi (\textit{Stability Rate} / $SR$) mengukur ketahanan dan keandalan sistem orkestrasi dalam mempertahankan ketersediaan operasional kios tanpa mengalami kebocoran memori (\textit{memory leak}), pembekuan sistem (\textit{freeze}), kegagalan batas waktu (\textit{timeout}), atau penghentian proses secara paksa selama pengujian jangka panjang \cite{velepucha2023survey, chiang2023management}.
+
+Metrik $SR$ dihitung sebagai rasio persentase antara jumlah sesi pengujian yang berhasil dieksekusi secara sempurna ($N_{\text{sukses}}$) terhadap total seluruh sesi pengujian yang dijalankan ($N_{\text{total}}$), sebagaimana dirumuskan pada Persamaan~(\ref{eq:stability_rate}):
+\begin{equation}
+    SR = \left( \frac{N_{\text{sukses}}}{N_{\text{total}}} \right) \times 100\%
+    \label{eq:stability_rate}
+\end{equation}
+di mana kriteria kegagalan didefinisikan jika terjadi salah satu kondisi anomali berikut:
+\begin{enumerate}
+    \item Terjadinya galat \textit{CUDA Out of Memory} (OOM) pada driver grafis.
+    \item Terjadinya \texttt{HTTP 504 Gateway Timeout} akibat proses pemuatan atau inferensi melampaui batas waktu toleransi orkestrator.
+    \item Proses layanan mengalami terminasi mendadak (\textit{abnormal termination} / kode keluar non-nol) yang membutuhkan pemulihan manual.
+\end{enumerate}
+
+Rumus ini diterapkan pada pengujian beban otomatis (\textit{benchmark harness}) melalui dua skenario pengujian ketahanan:
+\begin{enumerate}
+    \item \textbf{Uji Percakapan Beruntun:} Menjalankan $N_{\text{total}} = 100$ giliran percakapan berturut-turut tanpa jeda, dengan kriteria kelulusan mutlak $SR = 100\%$ (nol insiden OOM).
+    \item \textbf{Uji Daya Tahan Kios (\textit{Endurance Test}):} Menjalankan sistem kios aktif secara kontinu selama 8 jam pengoperasian untuk membuktikan tidak adanya akumulasi residu memori yang menyebabkan penurunan stabilitas kios \cite{hossain2023role}.
+\end{enumerate}

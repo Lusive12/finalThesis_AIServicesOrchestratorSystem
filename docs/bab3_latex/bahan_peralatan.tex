@@ -1,0 +1,70 @@
+% ==============================================================================
+% BAHAN DAN PERALATAN YANG DIGUNAKAN (BAB 3 METODOLOGI PENELITIAN)
+% Subbab: 3.2 Bahan dan Peralatan yang Digunakan
+% Penulis: Rendy Lexxy Kurniawan (NRP 5024231007)
+% Terintegrasi dengan:
+% - Pemetaan 3 Tugas Besar: UI/UX Kiosk, Orchestrator, Resource Management
+% - Sitasi di: docs/references.bib
+% ==============================================================================
+
+\subsection{Bahan dan Peralatan yang Digunakan}
+\label{subsec:bahan_dan_peralatan}
+
+Untuk merealisasikan dan mengevaluasi sistem orkestrasi layanan AI pada kios cerdas mandiri, penelitian ini memanfaatkan seperangkat bahan dan peralatan yang terdiri atas perangkat keras (\textit{hardware}) dan perangkat lunak (\textit{software}) \cite{chen2022minideep}. Seluruh komponen dipilih secara cermat guna mendukung implementasi tiga tugas besar: pembangunan antarmuka pengguna berbasis peramban Chromium potret (Tugas Besar 1), pengembangan orkestrator layanan berbasis microservices (Tugas Besar 2), serta perekayasaan modul manajemen alokasi sumber daya GPU lokal (Tugas Besar 3). Rincian spesifikasi teknis beserta peruntukan fungsional masing-masing komponen diuraikan pada subbab berikut.
+
+% ------------------------------------------------------------------------------
+% 3.2.1 Perangkat Keras (Hardware)
+% ------------------------------------------------------------------------------
+\subsubsection{Perangkat Keras (\textit{Hardware})}
+\label{subsubsec:hardware}
+
+Perangkat keras yang digunakan dalam penelitian ini berperan sebagai infrastruktur komputasi \textit{edge} lokal dan media interaksi fisik antara pengguna dengan sistem kios cerdas \cite{chen2022minideep, chiang2023management}. Komponen perangkat keras yang digunakan meliputi:
+
+\begin{enumerate}[label=\alph*.]
+    \item \textbf{Unit Komputer Kios (\textit{Mini PC}):} Satu unit komputer ASRock DeskMeet X600 berspesifikasi prosesor AMD Ryzen 5, memori utama 16~GB DDR5, serta penyimpanan media padat (\textit{Solid State Drive} / SSD) NVMe PCIe berkapasitas 1~TB. Perangkat ini menjadi platform komputasi terpadu yang mengeksekusi seluruh subsistem (Tugas Besar 1, 2, dan 3) secara mandiri di lokasi tanpa mengandalkan server komputasi awan.
+    
+    \item \textbf{Unit Pemrosesan Grafis (\textit{Graphics Processing Unit} / GPU):} Satu unit kartu grafis NVIDIA GeForce RTX 5060 \textit{Low Profile} dengan kapasitas memori video (\textit{Video RAM} / VRAM) sebesar 8~GB GDDR6 berbasis arsitektur Blackwell dan antarmuka bus PCIe 4.0 x8. Komponen ini merupakan sumber daya fisik bersama yang dikelola dan dioptimasi oleh modul \textit{Resource Management} (Tugas Besar 3) untuk menjalankan inferensi komputasi paralel seluruh model AI dengan ambang batas pemakaian $V_{\text{peak}} \le 7{,}5\text{ GB}$ \cite{woo2025exploring}.
+    
+    \item \textbf{Layar Sentuh Kios (\textit{Touchscreen Display}):} Satu unit layar sentuh berukuran 32 inci dengan resolusi Full HD ($1080 \times 1920$ piksel) yang dipasang dengan orientasi vertikal (potret). Perangkat ini terhubung melalui antarmuka video HDMI dan pengendali sentuh USB, berfungsi sebagai media antarmuka pengguna visual utama untuk menampilkan menu layanan dan menangkap interaksi sentuhan (Tugas Besar 1).
+    
+    \item \textbf{Kamera USB (\textit{Webcam}):} Satu unit kamera digital USB beresolusi 1080p dengan kecepatan tangkapan 30 bingkai per detik (FPS) yang dipasang berotasi 90 derajat (potret). Perangkat ini berfungsi sebagai sensor masukan visual bagi antarmuka pengguna (Tugas Besar 1) untuk mendeteksi keberadaan pengguna, analisis citra rekomendasi busana, serta umpan video langsung pada mode cermin \textit{virtual try-on}.
+    
+    \item \textbf{Mikrofon USB Larik (\textit{Microphone Array}):} Satu unit mikrofon USB tipe \textit{far-field array} yang dilengkapi perangkat keras peredam gema bawaan (\textit{hardware acoustic echo cancellation}). Berfungsi menangkap masukan suara pengguna secara jernih untuk layanan percakapan suara pada Tugas Besar 1 tanpa terinterferensi oleh suara sintesis yang dikeluarkan oleh sistem.
+    
+    \item \textbf{Pengeras Suara (\textit{Speaker}):} Satu unit pengeras suara stereo aktif bertipe \textit{soundbar} yang terpasang di bagian bawah layar kios. Komponen ini berfungsi menyuarakan respons sintesis suara AI kepada pengguna secara real-time (Tugas Besar 1).
+\end{enumerate}
+
+% ------------------------------------------------------------------------------
+% 3.2.2 Perangkat Lunak (Software)
+% ------------------------------------------------------------------------------
+\subsubsection{Perangkat Lunak (\textit{Software})}
+\label{subsubsec:software}
+
+Perangkat lunak mencakup sistem operasi, bahasa pemrograman, kerangka kerja (\textit{framework}), serta pustaka pendukung yang digunakan untuk merekayasa logika sistem dan instrumentasi evaluasi \cite{hossain2023role, velepucha2023survey}. Rincian perangkat lunak yang digunakan adalah sebagai berikut:
+
+\begin{enumerate}[label=\alph*.]
+    \item \textbf{Sistem Operasi:} Linux Ubuntu Desktop versi 24.04 LTS dengan kernel 6.x dan \textit{display server} X11/GNOME. Sistem operasi ini menyediakan lingkungan eksekusi tingkat rendah yang stabil, manajemen proses POSIX, pengelolaan memori halaman (\textit{paging}), isolasi grup kontrol (\textit{cgroups}) \cite{linux2026cgroup}, serta dukungan driver resmi kartu grafis NVIDIA seri 570+ untuk arsitektur Blackwell. Sistem operasi ini menopang eksekusi antarmuka Chromium (Tugas Besar 1), orkestrator (Tugas Besar 2), dan alokasi memori (Tugas Besar 3).
+
+    \item \textbf{Bahasa Pemrograman:}
+    \begin{itemize}
+        \item \textbf{Python (versi 3.12):} Digunakan secara eksklusif untuk membangun backend AI Service Orchestrator (Tugas Besar 2), modul instrumentasi Resource Management (Tugas Besar 3), serta skrip pengujian beban otomatis (\textit{benchmark harness}).
+        \item \textbf{Modern JavaScript (ES2023), HTML5, dan CSS3:} Digunakan untuk membangun antarmuka web responsif berorientasi potret 9:16 pada aplikasi peramban Chromium kios (Tugas Besar 1).
+    \end{itemize}
+
+    \item \textbf{Pustaka dan Kerangka Kerja (\textit{Libraries and Frameworks}):}
+    \begin{enumerate}[label=\roman*.]
+        \item \textbf{Chromium Browser (\textit{Kiosk Mode}):} Peramban web berbasis sumber terbuka yang dijalankan dalam mode kios layar penuh (\textit{fullscreen kiosk mode}) \cite{chromium2026kiosk}. Digunakan untuk menyajikan antarmuka visual potret (Tugas Besar 1) tanpa bilah navigasi atau jendela dialog peramban standar, sehingga mengamankan kiosk dari manipulasi luar.
+        
+        \item \textbf{FastAPI dan Server Uvicorn:} Kerangka kerja backend Python berbasis arsitektur \textit{Asynchronous Server Gateway Interface} (ASGI) \cite{fastapi2026}. Digunakan pada Tugas Besar 2 (Orchestrator) untuk menyediakan \textit{API Gateway} berkinerja tinggi, menangani endpoint kontrol RESTful (\texttt{/health}, \texttt{/load}, \texttt{/unload}, dan \texttt{/activate}), serta mengoordinasikan pengalihan data inferensi secara asinkronus.
+        
+        \item \textbf{Protokol WebSocket (RFC 6455):} Standar komunikasi jaringan dupleks penuh (\textit{full-duplex}) yang menghubungkan antarmuka web Chromium dengan orkestrator backend \cite{fette2011websocket}. Digunakan pada Tugas Besar 1 dan 2 untuk menyiarkan pembaruan status kesiapan model (\textit{readiness state}) dan aliran data inferensi secara instan tanpa membebani jaringan dengan \textit{polling} berulang.
+        
+        \item \textbf{PyNVML (\textit{Python NVIDIA Management Library}):} Pustaka pembungkus (\textit{binding}) resmi Python untuk mengakses antarmuka tingkat rendah pustaka manajemen driver NVIDIA NVML \cite{nvidia2026containertoolkit}. Digunakan pada Tugas Besar 3 (Resource Management) untuk mencuplik alokasi memori fisik VRAM ($V_{\text{peak}}$) dan utilisasi GPU secara kontinu setiap interval 50--100~ms.
+        
+        \item \textbf{NVIDIA Container Toolkit dan Docker Engine:} Perangkat lunak kontainerisasi berbasis kernel Linux yang menyediakan lingkungan eksekusi terisolasi bagi masing-masing model AI \cite{docker2026resource, nvidia2026containertoolkit}. Digunakan pada Tugas Besar 2 dan 3 untuk mengemas dependensi model dan mengonfigurasi alokasi perangkat GPU host ke dalam lingkungan layanan secara modular \cite{hu2023cec}.
+        
+        \item \textbf{PyYAML:} Pustaka pemroses format data YAML untuk membaca berkas konfigurasi registri layanan (\texttt{services.yaml}) yang mendefinisikan port, estimasi konsumsi memori VRAM, dan kebijakan eksklusivitas masing-masing model pada Tugas Besar 2 \cite{velepucha2023survey}.
+        
+        \item \textbf{Modul Pengukuran Waktu Presisi Tinggi (\texttt{time.perf_counter}):} Pustaka standar Python yang mengukur waktu dengan resolusi mikrodetik. Digunakan pada Tugas Besar 3 untuk merekam data empiris Waktu Swap ($T_{\text{swap}}$), Waktu Inferensi ($T_{\text{infer}}$), dan Latensi Ujung-ke-Ujung ($T_{\text{e2e}}$) \cite{zhang2025adaptive}.
+    \end{enumerate}
+\end{enumerate}

@@ -1,0 +1,35 @@
+# configs/benchmark.yaml — Parameter Benchmark & Pengujian 4 Strategi GPU
+
+version: "1.0"
+
+hardware_target:
+  gpu_name: "NVIDIA GeForce RTX 5060"
+  max_vram_mb: 8192
+  safe_vram_limit_mb: 7680 # Batas aman <= 7,5 GB
+
+sampling:
+  nvml_sample_interval_ms: 50 # Cuplikan kontinu VRAM setiap 50 ms
+  metrics_output_dir: "results"
+
+benchmark_runs:
+  default_rounds_per_condition: 10 # N >= 10
+  stress_test_turns: 100 # Uji 100 giliran percakapan tanpa OOM
+  endurance_duration_hours: 8 # Uji daya tahan 8 jam
+
+strategies_to_test:
+  - id: "strategy_a_resident"
+    name: "All-Resident"
+    description: "Seluruh model standby di VRAM"
+  - id: "strategy_b_naive"
+    name: "Naive Load/Unload"
+    description: "Muat dari disk dan segera unload"
+  - id: "strategy_c_pinned"
+    name: "Pinned-Memory Swap"
+    description: "Transfer via PCIe DMA dari Host Pinned RAM"
+  - id: "strategy_d_prefetch"
+    name: "Prefetch"
+    description: "Pemuatan awal asinkronus (latency hiding)"
+
+workloads:
+  voice_turns_dataset: "data/workloads/voice_queries.jsonl"
+  visual_inputs_dir: "data/workloads/images"

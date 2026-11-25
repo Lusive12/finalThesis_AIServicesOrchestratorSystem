@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" font-family="Helvetica, Arial, sans-serif">
+<defs>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#ffffff" stroke-width="3" stroke-opacity="0.38"/></pattern>
+</defs>
+<rect width="1600" height="1000" fill="#ffffff"/>
+<rect x="10.0" y="10.0" width="1580.0" height="980.0" stroke-width="0.8" fill="none" stroke="#1b1f24"/>
+<rect x="20.0" y="20.0" width="1560.0" height="960.0" stroke-width="1.8" fill="none" stroke="#1b1f24"/>
+<text x="60.0" y="62.0" font-size="20" text-anchor="start" font-weight="700" fill="#1b1f24">TAMPILAN LAYAR PER MODE</text>
+<text x="60.0" y="82.0" font-size="12" text-anchor="start" font-weight="400" fill="#5b6470">Apa yang dilihat pengguna pada tiap layanan. Sketsa tata letak untuk layar potret 1080 × 1920, bukan desain akhir.</text>
+<rect x="63.0" y="121.0" width="284.0" height="494.0" rx="10" fill="#ffffff" stroke-width="1.5" stroke="#1b1f24"/>
+<rect x="70.0" y="128.0" width="270.0" height="480.0" rx="3" fill="#f7f8fa" stroke="#a3abb5" stroke-width="0.8"/>
+<rect x="80.0" y="138.0" width="58.0" height="15.0" rx="7.5" fill="#2b3038" stroke="none" stroke-width="1.2"/>
+<text x="109.0" y="149.0" font-size="9" text-anchor="middle" font-weight="700" fill="#ffffff">ID | EN</text>
+<circle cx="205.0" cy="258.0" r="46.0" fill="#d7dce3" stroke="none" stroke-width="1.2"/>
+<path d="M 113.0 390.0 C 113.0 304.0, 297.0 304.0, 297.0 390.0 Z" fill="#d7dce3"/>
+<path d="M 191.0 274.0 q 14 10 28 0" fill="none" stroke="#5b6470" stroke-width="2" stroke-linecap="round"/>
+<line x1="70.0" y1="390.0" x2="340.0" y2="390.0" stroke="#a3abb5" stroke-width="0.8"/>
+<rect x="84.0" y="404.0" width="160.0" height="22.0" rx="8" fill="#e3e6ea" stroke="none" stroke-width="1.2"/>
+<text x="92.0" y="419.0" font-size="9.5" text-anchor="start" font-weight="400" fill="#1b1f24">“Di mana ruang dosen?”</text>
+<rect x="130.0" y="434.0" width="196.0" height="34.0" rx="8" fill="#2b3038" stroke="none" stroke-width="1.2"/>
+<text x="138.0" y="448.0" font-size="9.5" text-anchor="start" font-weight="400" fill="#ffffff">Ruang dosen ada di lantai 2,</text>
+<text x="138.0" y="461.0" font-size="9.5" text-anchor="start" font-weight="400" fill="#ffffff">sebelah kanan tangga…</text>
+<circle cx="205.0" cy="536.0" r="24.0" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<rect x="200.0" y="523.0" width="10.0" height="17.0" rx="5" fill="#ffffff" stroke="none" stroke-width="1.2"/>
+<path d="M 195.0 535.0 a 10 10 0 0 0 20 0" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+<line x1="205.0" y1="545.0" x2="205.0" y2="550.0" stroke="#ffffff" stroke-width="1.8"/>
+<text x="205.0" y="584.0" font-size="10" text-anchor="middle" font-weight="400" fill="#5b6470">Tekan &amp; bicara</text>
+<rect x="443.0" y="121.0" width="284.0" height="494.0" rx="10" fill="#ffffff" stroke-width="1.5" stroke="#1b1f24"/>
+<rect x="450.0" y="128.0" width="270.0" height="480.0" rx="3" fill="#f7f8fa" stroke="#a3abb5" stroke-width="0.8"/>
+<text x="464.0" y="156.0" font-size="11.5" text-anchor="start" font-weight="700" fill="#1b1f24">Busana yang cocok untuk Anda</text>
+<rect x="464.0" y="170.0" width="62.0" height="94.0" rx="5" fill="#e3e6ea" stroke="#a3abb5" stroke-width="0.8"/>
+<g opacity="1.0">
+<rect x="485.6" y="218.0" width="8.2" height="38.5" rx="2.46" fill="#6b7480" stroke="none" stroke-width="1.2"/>
+<rect x="496.2" y="218.0" width="8.2" height="38.5" rx="2.46" fill="#6b7480" stroke="none" stroke-width="1.2"/>
+<line x1="483.1" y1="193.4" x2="479.8" y2="214.7" stroke="#9aa3ad" stroke-width="4.51" stroke-linecap="round"/>
+<line x1="506.9" y1="193.4" x2="510.2" y2="214.7" stroke="#9aa3ad" stroke-width="4.51" stroke-linecap="round"/>
+<rect x="484.3" y="189.7" width="21.3" height="30.3" rx="3.69" fill="#9aa3ad" stroke="none" stroke-width="1.2"/>
+<circle cx="495.0" cy="183.2" r="5.3" fill="#c9cfd7" stroke="none" stroke-width="1.2"/>
+</g>
+<text x="495.0" y="276.0" font-size="8.5" text-anchor="middle" font-weight="400" fill="#5b6470">foto asli</text>
+<text x="540.0" y="186.0" font-size="10" text-anchor="start" font-weight="700" fill="#1b1f24">Analisis VLM</text>
+<text x="540.0" y="204.0" font-size="9.5" text-anchor="start" font-weight="400" fill="#5b6470">• bentuk tubuh &amp; warna kulit</text>
+<text x="540.0" y="219.0" font-size="9.5" text-anchor="start" font-weight="400" fill="#5b6470">• busana yang sedang dipakai</text>
+<text x="540.0" y="234.0" font-size="9.5" text-anchor="start" font-weight="400" fill="#5b6470">• saran: kasual, warna hangat</text>
+<rect x="464.0" y="288.0" width="114.0" height="132.0" rx="6" fill="#ffffff" stroke="#a3abb5" stroke-width="0.9"/>
+<g opacity="1.0">
+<rect x="509.5" y="346.0" width="10.0" height="47.0" rx="3.0" fill="#1e293b" stroke="none" stroke-width="1.2"/>
+<rect x="522.5" y="346.0" width="10.0" height="47.0" rx="3.0" fill="#1e293b" stroke="none" stroke-width="1.2"/>
+<line x1="506.5" y1="316.0" x2="502.5" y2="342.0" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round"/>
+<line x1="535.5" y1="316.0" x2="539.5" y2="342.0" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round"/>
+<rect x="508.0" y="311.5" width="26.0" height="37.0" rx="4.5" fill="#2563eb" stroke="none" stroke-width="1.2"/>
+<circle cx="521.0" cy="303.5" r="6.5" fill="#c9cfd7" stroke="none" stroke-width="1.2"/>
+</g>
+<text x="521.0" y="413.0" font-size="9" text-anchor="middle" font-weight="700" fill="#1b1f24">Opsi 1</text>
+<rect x="592.0" y="288.0" width="114.0" height="132.0" rx="6" fill="#ffffff" stroke="#a3abb5" stroke-width="0.9"/>
+<g opacity="1.0">
+<rect x="637.5" y="346.0" width="10.0" height="47.0" rx="3.0" fill="#a8a29e" stroke="none" stroke-width="1.2"/>
+<rect x="650.5" y="346.0" width="10.0" height="47.0" rx="3.0" fill="#a8a29e" stroke="none" stroke-width="1.2"/>
+<line x1="634.5" y1="316.0" x2="630.5" y2="342.0" stroke="#0d9488" stroke-width="5.5" stroke-linecap="round"/>
+<line x1="663.5" y1="316.0" x2="667.5" y2="342.0" stroke="#0d9488" stroke-width="5.5" stroke-linecap="round"/>
+<rect x="636.0" y="311.5" width="26.0" height="37.0" rx="4.5" fill="#0d9488" stroke="none" stroke-width="1.2"/>
+<circle cx="649.0" cy="303.5" r="6.5" fill="#c9cfd7" stroke="none" stroke-width="1.2"/>
+</g>
+<text x="649.0" y="413.0" font-size="9" text-anchor="middle" font-weight="700" fill="#1b1f24">Opsi 2</text>
+<rect x="464.0" y="430.0" width="114.0" height="132.0" rx="6" fill="#ffffff" stroke="#a3abb5" stroke-width="0.9"/>
+<g opacity="1.0">
+<rect x="509.5" y="488.0" width="10.0" height="47.0" rx="3.0" fill="#334155" stroke="none" stroke-width="1.2"/>
+<rect x="522.5" y="488.0" width="10.0" height="47.0" rx="3.0" fill="#334155" stroke="none" stroke-width="1.2"/>
+<line x1="506.5" y1="458.0" x2="502.5" y2="484.0" stroke="#c2410c" stroke-width="5.5" stroke-linecap="round"/>
+<line x1="535.5" y1="458.0" x2="539.5" y2="484.0" stroke="#c2410c" stroke-width="5.5" stroke-linecap="round"/>
+<rect x="508.0" y="453.5" width="26.0" height="37.0" rx="4.5" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<circle cx="521.0" cy="445.5" r="6.5" fill="#c9cfd7" stroke="none" stroke-width="1.2"/>
+</g>
+<text x="521.0" y="555.0" font-size="9" text-anchor="middle" font-weight="700" fill="#1b1f24">Opsi 3</text>
+<rect x="592.0" y="430.0" width="114.0" height="132.0" rx="6" fill="#f1f3f5" stroke="#a3abb5" stroke-width="0.9" stroke-dasharray="4 3"/>
+<circle cx="649.0" cy="484.0" r="13.0" stroke="#a3abb5" stroke-width="3" fill="none"/>
+<path d="M 649.0 471.0 a 13 13 0 0 1 13 13" fill="none" stroke="#c2410c" stroke-width="3" stroke-linecap="round"/>
+<text x="649.0" y="520.0" font-size="9" text-anchor="middle" font-weight="400" fill="#5b6470">membuat gambar…</text>
+<text x="464.0" y="584.0" font-size="9" text-anchor="start" font-weight="400" fill="#5b6470">3 dari 4 gambar selesai</text>
+<rect x="464.0" y="591.0" width="242.0" height="5.0" rx="2.5" fill="#e3e6ea" stroke="none" stroke-width="1.2"/>
+<rect x="464.0" y="591.0" width="181.5" height="5.0" rx="2.5" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<rect x="823.0" y="121.0" width="284.0" height="494.0" rx="10" fill="#ffffff" stroke-width="1.5" stroke="#1b1f24"/>
+<rect x="830.0" y="128.0" width="270.0" height="480.0" rx="3" fill="#2b3038" stroke="#a3abb5" stroke-width="0.8"/>
+<g opacity="0.16">
+<rect x="908.4" y="349.0" width="31.8" height="149.5" rx="9.54" fill="#64748b" stroke="none" stroke-width="1.2"/>
+<rect x="949.8" y="349.0" width="31.8" height="149.5" rx="9.54" fill="#64748b" stroke="none" stroke-width="1.2"/>
+<line x1="898.9" y1="253.6" x2="886.2" y2="336.3" stroke="#c2410c" stroke-width="17.49" stroke-linecap="round"/>
+<line x1="991.1" y1="253.6" x2="1003.8" y2="336.3" stroke="#c2410c" stroke-width="17.49" stroke-linecap="round"/>
+<rect x="903.7" y="239.3" width="82.7" height="117.7" rx="14.309999999999999" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<circle cx="945.0" cy="213.8" r="20.7" fill="#d9b99b" stroke="none" stroke-width="1.2"/>
+</g>
+<g opacity="0.16">
+<rect x="945.4" y="349.0" width="31.8" height="149.5" rx="9.54" fill="#64748b" stroke="none" stroke-width="1.2"/>
+<rect x="986.8" y="349.0" width="31.8" height="149.5" rx="9.54" fill="#64748b" stroke="none" stroke-width="1.2"/>
+<line x1="935.9" y1="253.6" x2="923.2" y2="336.3" stroke="#c2410c" stroke-width="17.49" stroke-linecap="round"/>
+<line x1="1028.1" y1="253.6" x2="1040.8" y2="336.3" stroke="#c2410c" stroke-width="17.49" stroke-linecap="round"/>
+<rect x="940.7" y="239.3" width="82.7" height="117.7" rx="14.309999999999999" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<circle cx="982.0" cy="213.8" r="20.7" fill="#d9b99b" stroke="none" stroke-width="1.2"/>
+</g>
+<g opacity="1.0">
+<rect x="928.4" y="349.0" width="31.8" height="149.5" rx="9.54" fill="#94a3b8" stroke="none" stroke-width="1.2"/>
+<rect x="969.8" y="349.0" width="31.8" height="149.5" rx="9.54" fill="#94a3b8" stroke="none" stroke-width="1.2"/>
+<line x1="918.9" y1="253.6" x2="906.2" y2="336.3" stroke="#c2410c" stroke-width="17.49" stroke-linecap="round"/>
+<line x1="1011.1" y1="253.6" x2="1023.8" y2="336.3" stroke="#c2410c" stroke-width="17.49" stroke-linecap="round"/>
+<rect x="923.7" y="239.3" width="82.7" height="117.7" rx="14.309999999999999" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<circle cx="965.0" cy="213.8" r="20.7" fill="#d9b99b" stroke="none" stroke-width="1.2"/>
+</g>
+<rect x="842.0" y="140.0" width="52.0" height="18.0" rx="4" fill="#dc2626" stroke="none" stroke-width="1.2"/>
+<circle cx="852.0" cy="149.0" r="3.0" fill="#ffffff" stroke="none" stroke-width="1.2"/>
+<text x="859.0" y="153.0" font-size="9.5" text-anchor="start" font-weight="700" fill="#ffffff">LIVE</text>
+<text x="1088.0" y="153.0" font-size="9.5" text-anchor="end" font-weight="400" fill="#b9c0c9">video real-time</text>
+<rect x="862.0" y="526.0" width="44.0" height="44.0" rx="6" fill="#c2410c" stroke="#ffffff" stroke-width="2.5"/>
+<rect x="916.0" y="526.0" width="44.0" height="44.0" rx="6" fill="#7c3aed" stroke="none" stroke-width="2.5"/>
+<rect x="970.0" y="526.0" width="44.0" height="44.0" rx="6" fill="#2563eb" stroke="none" stroke-width="2.5"/>
+<rect x="1024.0" y="526.0" width="44.0" height="44.0" rx="6" fill="#0d9488" stroke="none" stroke-width="2.5"/>
+<text x="965.0" y="590.0" font-size="9.5" text-anchor="middle" font-weight="400" fill="#e8ebef">Ucapkan “berikutnya” untuk ganti busana</text>
+<rect x="1203.0" y="121.0" width="284.0" height="494.0" rx="10" fill="#ffffff" stroke-width="1.5" stroke="#1b1f24"/>
+<rect x="1210.0" y="128.0" width="270.0" height="480.0" rx="3" fill="#f7f8fa" stroke="#a3abb5" stroke-width="0.8"/>
+<text x="1224.0" y="156.0" font-size="11.5" text-anchor="start" font-weight="700" fill="#1b1f24">AI Photobooth</text>
+<rect x="1245.0" y="172.0" width="200.0" height="250.0" rx="6" fill="#fde7d3" stroke="#1b1f24" stroke-width="1"/>
+<circle cx="1290.0" cy="218.0" r="26.0" fill="#fbbf77" stroke="none" stroke-width="1.2"/>
+<circle cx="1410.0" cy="378.0" r="40.0" fill="#f9c9a0" stroke="none" stroke-width="1.2"/>
+<circle cx="1345.0" cy="278.0" r="44.0" fill="#8b5e3c" stroke="none" stroke-width="1.2"/>
+<path d="M 1259.0 421.0 C 1259.0 324.0, 1431.0 324.0, 1431.0 421.0 Z" fill="#7c3aed"/>
+<rect x="1232.0" y="434.0" width="70.0" height="20.0" rx="10" fill="#2b3038" stroke="#1b1f24" stroke-width="0.9"/>
+<text x="1267.0" y="448.0" font-size="9.5" text-anchor="middle" font-weight="600" fill="#ffffff">Kartun</text>
+<rect x="1310.0" y="434.0" width="70.0" height="20.0" rx="10" fill="#ffffff" stroke="#1b1f24" stroke-width="0.9"/>
+<text x="1345.0" y="448.0" font-size="9.5" text-anchor="middle" font-weight="600" fill="#1b1f24">Lukisan</text>
+<rect x="1388.0" y="434.0" width="70.0" height="20.0" rx="10" fill="#ffffff" stroke="#1b1f24" stroke-width="0.9"/>
+<text x="1423.0" y="448.0" font-size="9.5" text-anchor="middle" font-weight="600" fill="#1b1f24">Astronaut</text>
+<rect x="1300.0" y="467.0" width="90.0" height="90.0" fill="#ffffff" stroke="#a3abb5" stroke-width="0.8"/>
+<rect x="1305.0" y="472.0" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1313.9" y="472.0" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1322.8" y="472.0" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1331.7" y="472.0" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1358.3" y="472.0" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1367.2" y="472.0" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1376.1" y="472.0" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1305.0" y="480.9" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1313.9" y="480.9" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1322.8" y="480.9" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1358.3" y="480.9" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1367.2" y="480.9" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1376.1" y="480.9" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1305.0" y="489.8" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1313.9" y="489.8" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1322.8" y="489.8" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1340.6" y="489.8" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1358.3" y="489.8" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1367.2" y="489.8" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1376.1" y="489.8" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1305.0" y="498.7" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1331.7" y="498.7" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1358.3" y="498.7" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1313.9" y="516.4" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1340.6" y="516.4" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1367.2" y="516.4" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1305.0" y="525.3" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1313.9" y="525.3" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1322.8" y="525.3" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1331.7" y="525.3" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1358.3" y="525.3" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1305.0" y="534.2" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1313.9" y="534.2" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1322.8" y="534.2" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1305.0" y="543.1" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1313.9" y="543.1" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1322.8" y="543.1" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1340.6" y="543.1" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<rect x="1367.2" y="543.1" width="8.9" height="8.9" fill="#1b1f24" stroke="none" stroke-width="1.2"/>
+<text x="1345.0" y="584.0" font-size="9.5" text-anchor="middle" font-weight="400" fill="#5b6470">Pindai untuk mengunduh</text>
+<text x="63.0" y="648.0" font-size="14" text-anchor="start" font-weight="700" fill="#1b1f24">Percakapan informasi</text>
+<rect x="63.0" y="658.0" width="88.8" height="17.0" rx="8.5" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<text x="107.4" y="670.0" font-size="9.5" text-anchor="middle" font-weight="700" fill="#ffffff">Ferdie · Gung</text>
+<text x="63.0" y="698.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#1b1f24">Keluaran: suara, teks, dan avatar yang berbicara.</text>
+<text x="63.0" y="714.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">Posisi: zona A (dekat layar).</text>
+<text x="63.0" y="730.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">GPU: STT → LLM → TTS bergiliran;</text>
+<text x="63.0" y="746.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">avatar aktif bersama TTS.</text>
+<text x="443.0" y="648.0" font-size="14" text-anchor="start" font-weight="700" fill="#1b1f24">Rekomendasi busana</text>
+<rect x="443.0" y="658.0" width="32.8" height="17.0" rx="8.5" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<text x="459.4" y="670.0" font-size="9.5" text-anchor="middle" font-weight="700" fill="#ffffff">Ria</text>
+<text x="443.0" y="698.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#1b1f24">Keluaran: beberapa gambar 2D foto pengguna</text>
+<text x="443.0" y="714.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">memakai busana yang cocok untuknya.</text>
+<text x="443.0" y="730.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">Posisi: difoto di zona B, melihat hasil di zona A.</text>
+<text x="443.0" y="746.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">GPU: VLM dahulu, lalu ditukar dengan difusi gambar.</text>
+<text x="823.0" y="648.0" font-size="14" text-anchor="start" font-weight="700" fill="#1b1f24">Virtual try-on video</text>
+<rect x="823.0" y="658.0" width="38.4" height="17.0" rx="8.5" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<text x="842.2" y="670.0" font-size="9.5" text-anchor="middle" font-weight="700" fill="#ffffff">Erdi</text>
+<text x="823.0" y="698.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#1b1f24">Keluaran: video bergerak real-time yang mengikuti</text>
+<text x="823.0" y="714.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">gerakan pengguna (mirip Decart AI).</text>
+<text x="823.0" y="730.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">Posisi: zona B; layar tidak terjangkau tangan.</text>
+<text x="823.0" y="746.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">GPU: eksklusif dan terus-menerus selama sesi.</text>
+<text x="1203.0" y="648.0" font-size="14" text-anchor="start" font-weight="700" fill="#1b1f24">AI photobooth</text>
+<rect x="1203.0" y="658.0" width="38.4" height="17.0" rx="8.5" fill="#c2410c" stroke="none" stroke-width="1.2"/>
+<text x="1222.2" y="670.0" font-size="9.5" text-anchor="middle" font-weight="700" fill="#ffffff">Deva</text>
+<text x="1203.0" y="698.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#1b1f24">Keluaran: foto bergaya dengan wajah tetap</text>
+<text x="1203.0" y="714.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">dikenali, plus kode QR untuk mengunduh.</text>
+<text x="1203.0" y="730.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">Posisi: difoto di zona B.</text>
+<text x="1203.0" y="746.0" font-size="10.5" text-anchor="start" font-weight="400" fill="#5b6470">GPU: eksklusif per foto.</text>
+<rect x="60.0" y="826.0" width="1480.0" height="84.0" rx="8" fill="#fff4ec" stroke="#c2410c" stroke-width="1.2"/>
+<text x="80.0" y="852.0" font-size="12.5" text-anchor="start" font-weight="700" fill="#c2410c">Alur gabungan yang diusulkan</text>
+<text x="80.0" y="873.0" font-size="11" text-anchor="start" font-weight="400" fill="#1b1f24">Ria dan Erdi memakai katalog busana yang sama. Layanan Ria memilih busana yang cocok dan menampilkannya sebagai gambar diam; pengguna mengetuk salah satu,</text>
+<text x="80.0" y="891.0" font-size="11" text-anchor="start" font-weight="400" fill="#1b1f24">lalu layanan Erdi menampilkan busana itu sebagai video bergerak. Perbedaan keduanya: Ria menjawab “busana apa yang cocok”, Erdi menjawab “seperti apa saat saya bergerak”.</text>
+<text x="60.0" y="952.0" font-size="10" text-anchor="start" font-weight="400" fill="#5b6470">SK-05 · Tampilan layar per mode · rev. A (draf PoC) · 30-09-2026</text>
+</svg>

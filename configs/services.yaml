@@ -1,0 +1,83 @@
+# configs/services.yaml — Registry Layanan AI Lokal pada Smart Kiosk
+# Sumber kebenaran tunggal untuk estimasi alokasi VRAM, endpoint, dan sifat eksklusivitas.
+
+version: "1.0"
+
+services:
+  speech_stt:
+    name: "Speech-to-Text (Faster-Whisper)"
+    owner: "Ferdie"
+    runtime: "python_process"
+    endpoint: "http://127.0.0.1:8001"
+    estimated_vram_mb: 1200
+    load_time_estimate_ms: 1500
+    exclusive_gpu: false
+    can_resident: true
+    models:
+      default: "faster-whisper-large-v3-turbo"
+      quantization: "int8"
+
+  speech_llm:
+    name: "Local LLM (Qwen / Llama)"
+    owner: "Ferdie"
+    runtime: "python_process"
+    endpoint: "http://127.0.0.1:8002"
+    estimated_vram_mb: 3500
+    load_time_estimate_ms: 2500
+    exclusive_gpu: false
+    can_resident: true
+    models:
+      default: "qwen2.5-3b-instruct-q4"
+      context_length: 2048
+
+  speech_tts:
+    name: "Text-to-Speech (Piper)"
+    owner: "Ferdie"
+    runtime: "python_process"
+    endpoint: "http://127.0.0.1:8003"
+    estimated_vram_mb: 0 # Berjalan pada Host CPU
+    load_time_estimate_ms: 300
+    exclusive_gpu: false
+    can_resident: true
+    models:
+      default: "piper-id-vits"
+
+  avatar_visual:
+    name: "Real-time Avatar Lip-Sync"
+    owner: "Gung"
+    runtime: "python_process"
+    endpoint: "http://127.0.0.1:8004"
+    estimated_vram_mb: 2200
+    load_time_estimate_ms: 2000
+    exclusive_gpu: false
+    can_resident: false
+
+  fashion_recommender:
+    name: "Fashion VLM & Diffusion Recommender"
+    owner: "Ria"
+    runtime: "python_process"
+    endpoint: "http://127.0.0.1:8005"
+    estimated_vram_mb: 6500
+    load_time_estimate_ms: 4000
+    exclusive_gpu: true
+    can_resident: false
+
+  virtual_tryon:
+    name: "Real-Time Video Virtual Try-On"
+    owner: "Erdi"
+    runtime: "python_process"
+    endpoint: "http://127.0.0.1:8006"
+    estimated_vram_mb: 7200
+    load_time_estimate_ms: 5000
+    exclusive_gpu: true
+    can_resident: false
+
+  ai_photobooth:
+    name: "Identity-Preserving AI Photobooth"
+    owner: "Deva"
+    runtime: "python_process"
+    endpoint: "http://127.0.0.1:8007"
+    estimated_vram_mb: 7000
+    load_time_estimate_ms: 4500
+    exclusive_gpu: true
+    can_resident: false

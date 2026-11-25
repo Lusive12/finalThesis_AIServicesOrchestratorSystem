@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+.env
+
+# Large Model Weights & Data Cache
+*.bin
+*.pt
+*.pth
+*.onnx
+*.gguf
+*.safetensors
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Experiments & Results raw data
+# results/*.csv and results/*.jsonl can be tracked or kept in results/

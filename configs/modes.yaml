@@ -1,0 +1,46 @@
+# configs/modes.yaml — Matriks Mode Interaksi Smart Kiosk
+# Mendefinisikan mode, layanan aktif per mode, dan transisi antar-mode.
+
+version: "1.0"
+
+modes:
+  standby:
+    description: "Mode siaga menunggu pengguna mendekat"
+    active_services: []
+    exclusive_mode: false
+    zone: "A"
+
+  conversation:
+    description: "Layanan informasi percakapan suara interaktif"
+    active_services:
+      - speech_stt
+      - speech_llm
+      - speech_tts
+      - avatar_visual
+    exclusive_mode: false
+    zone: "A"
+    vram_budget_mb: 6900
+
+  fashion_recommendation:
+    description: "Analisis busana multimodal dan rekomendasi gambar"
+    active_services:
+      - fashion_recommender
+    exclusive_mode: true
+    zone: "B"
+    vram_budget_mb: 7200
+
+  virtual_tryon:
+    description: "Video virtual try-on real-time (Cermin Digital)"
+    active_services:
+      - virtual_tryon
+    exclusive_mode: true
+    zone: "B"
+    vram_budget_mb: 7500
+
+  ai_photobooth:
+    description: "Pembuatan foto AI beresolusi tinggi"
+    active_services:
+      - ai_photobooth
+    exclusive_mode: true
+    zone: "A"
+    vram_budget_mb: 7200

@@ -1,0 +1,72 @@
+
+
+
+multi threading
+
+bisa jga tiru proses comfy ui, ollama (engine)
+
+llm = ollama/lm studio
+image gen = comfy ui
+
+Apakah hrs tiru
+
+metodologi 
+
+scope = aplikasi orchestrator
+orchestrate apa? memory, proses, runtime (niru cara llm image gen) -- arsitektur?
+resource 
+why? = utk smua jdi satu
+
+= gak ngerti 
+
+
+vram 
+model gede - runtime
+berjalan normal, warning kl overheat
+cpu or gpu reach 90%, branching, 
+
+comfy ui, load model, penggunaan vram, 
+
+beberapa 
+
+load unload load unload 
+
+pipeline n8n
+
+hasil akhir: latency and runtime
+
+misal stt, tts, pnya ferdie = perlu 
+
+= perlu coba software monitor - NVML (software monitoring)
+nvidia sli
+
+dpt model gguf 
+
+baca .md
+
+nanti mereka kasih tau butuh model apa aja
+
+kita deploy model stt faster whisper, tts piper = nanti mrka yang 
+
+orkestrator bisa memanggil model" itu, API Gateway
+
+api gateway nya ke orchestrator
+
+resource yang kepake perlu dimonitoring
+vram, memory, 
+
+
+akhir weekend malem ini = bareng arta 
+
+
+
+
+
+next step 
+= login ssh pc lab
+= download model di .md (stt faster whisper, tts piper, dsb)
+= jalankan modelnya di gpu itu, lihat makan brpa banyak
+= buat python script orchestrator yang ngatur load unload load unload
+= coba dlu load unload
+= nnti conditional, model apa aja yg selalu running, model apa yg running sendiri" or barengan, dsb
+
