@@ -1,72 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Kiosk - AI Service Orchestration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#081426">
+  <title>Smart Kiosk — AI Experience</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="portrait-kiosk">
-  <!-- Status Bar Header -->
-  <header class="kiosk-header">
-    <div class="header-left">
-      <span class="kiosk-logo">🏛️ SMART KIOSK ITS</span>
-      <span class="active-mode-badge" id="currentModeBadge">Mode: Siaga</span>
-    </div>
-    <div class="header-right">
-      <span class="telemetry-pill" id="vramTelemetry">VRAM: -- / 8192 MB</span>
-      <span class="ws-status-indicator connected" id="wsStatus">Online</span>
-    </div>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <button class="brand" id="brandHome" aria-label="Kembali ke beranda"><span class="brand-mark">S<span>·</span></span><span><b>SMART KIOSK</b><small>AI EXPERIENCE HUB</small></span></button>
+    <div class="top-status"><span class="live-dot"></span><span id="connectionLabel">MENGHUBUNGKAN</span><span class="status-divider"></span><span id="clock">--:--</span></div>
   </header>
-
-  <!-- Main Content Stage (9:16 Portrait Layout) -->
-  <main class="kiosk-stage" id="kioskStage">
-    <!-- Standby & Avatar Interaction Zone -->
-    <section class="avatar-container" id="avatarSection">
-      <div class="avatar-frame">
-        <div class="avatar-placeholder" id="avatarVisual">
-          <div class="pulse-ring"></div>
-          <span class="avatar-icon">🤖</span>
-        </div>
-      </div>
-      <div class="transcript-box" id="transcriptBox">
-        <p class="transcript-text" id="transcriptText">Halo! Silakan sentuh tombol di bawah atau mulai berbicara untuk mengakses layanan informasi.</p>
-      </div>
-    </section>
-
-    <!-- Visual Interactive Area (Camera / Try-On / Photobooth / Gallery) -->
-    <section class="visual-canvas-container" id="visualSection" style="display: none;">
-      <video id="kioskCamera" autoplay playsinline muted class="camera-stream"></video>
-      <div class="overlay-result" id="overlayResult"></div>
-      <div class="loading-barrier" id="loadingBarrier" style="display: none;">
-        <div class="spinner"></div>
-        <p class="barrier-text" id="barrierText">Menyiapkan model visual GPU...</p>
-      </div>
-    </section>
-
-    <!-- Service Selection Deck (Ergonomic Touch Height) -->
-    <nav class="touch-control-deck" id="controlDeck">
-      <button class="kiosk-touch-btn active" data-mode="conversation" id="btnConversation">
-        <span class="btn-icon">🎙️</span>
-        <span class="btn-label">Tanya Jawab Suara</span>
-      </button>
-      <button class="kiosk-touch-btn" data-mode="fashion_recommendation" id="btnFashion">
-        <span class="btn-icon">👗</span>
-        <span class="btn-label">Rekomendasi Busana</span>
-      </button>
-      <button class="kiosk-touch-btn" data-mode="virtual_tryon" id="btnTryon">
-        <span class="btn-icon">🪞</span>
-        <span class="btn-label">Virtual Try-On</span>
-      </button>
-      <button class="kiosk-touch-btn" data-mode="ai_photobooth" id="btnPhotobooth">
-        <span class="btn-icon">📸</span>
-        <span class="btn-label">AI Photobooth</span>
-      </button>
-    </nav>
-  </main>
-
-  <script src="js/websocket.js"></script>
-  <script src="js/mode_manager.js"></script>
-  <script src="js/app.js"></script>
+  <main id="app" aria-live="polite"></main>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
